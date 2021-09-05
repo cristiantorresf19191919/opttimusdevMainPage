@@ -1,0 +1,592 @@
+@mixin telefono {
+  @media screen and (max-width:650px){
+    @content;
+  }
+}
+
+.navbar-toggler{
+  display: none;
+  @include telefono{
+    display: none !important;
+  }
+}
+
+#disparemodal:target {
+  display: block;
+  z-index: 99;
+}
+
+@media screen and (max-width:450px) {
+  .popup__block {
+    width: 90% !important;
+    left: -6% !important;
+  }
+
+  .popup__close {
+    left: 84% !important;
+  }
+
+  .popup {
+    &:after {
+      left: 1% !important;
+    }
+
+    &:before {
+      left: 1% !important;
+    }
+  }
+}
+
+@media screen and (max-width:759px) {
+  .popup__close {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    top: 8.7% !important;
+    right: 9% !important;
+  }
+
+  .popup__block {
+    box-shadow: none !important;
+    border: none !important;
+    top: 7% !important;
+  }
+
+  .icono {
+    left: 3% !important;
+  }
+}
+
+.popup {
+  margin: 1px 40px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 100vh !important;
+  left: 7%;
+  top: 5%;
+  z-index: 2000;
+  position: fixed;
+  display: none;
+
+  &:before {
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    left: 7%;
+    top: 50%;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    will-change: height, top;
+    animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+    -webkit-animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+    -moz-animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+    -o-animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    left: 7%;
+    top: 50%;
+    background-color: rgb(255, 255, 255);
+    will-change: width, opacity;
+    -webkit-animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+    -moz-animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+    -o-animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+    display: block;
+    animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+    position: absolute;
+    margin-top: -1px;
+  }
+
+  @keyframes line-animation {
+    0% {
+      width: 0;
+      opacity: 1;
+    }
+
+    99% {
+      width: 100%;
+      opacity: 1;
+    }
+
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes line-animation {
+    0% {
+      width: 0;
+      opacity: 1;
+    }
+
+    99% {
+      width: 100%;
+      opacity: 1;
+    }
+
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes open-animation {
+    0% {
+      height: 0;
+      top: 50%
+    }
+
+    100% {
+      height: 100%;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0);
+      display: none;
+    }
+  }
+
+  @-webkit-keyframes open-animation {
+    0% {
+      height: 0;
+      top: 50%
+    }
+
+    100% {
+      height: 100%;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0);
+      display: none;
+    }
+  }
+}
+
+.popup__block {
+  margin: 1px 40px;
+  box-sizing: border-box;
+  width: 80%;
+  height: auto !important;
+  left: 7%;
+  top:-1%;
+  border: 2px solid rgb(177, 169, 169);
+  box-shadow: 3px 3px 25px black;
+  animation: fade .5s ease-out 1s both;
+  -webkit-animation: fade .5s ease-out 1s both;
+  -moz-animation: fade .5s ease-out 1s both;
+  -o-animation: fade .5s ease-out 1s both;
+  z-index: 999999999999999999999;
+  border: none;
+  position: fixed;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup__title {
+  font-size: 2.5rem;
+  margin: 0 0 1em;
+}
+
+.popup__close {
+  width: 2.2rem;
+  height: 2.2rem;
+  text-indent: -9999px;
+  z-index: 999999999999999999999999999999999999999999999999999999999;
+  position: fixed;
+  top: 4.2%;
+  right: 12%;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-image: url("/assets/img/closeButton.png");
+}
+
+form {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+// el papa
+.controls-container {
+  background: #fff;
+  border: 1px solid rgb(75, 75, 75);
+  box-shadow: 3px 3px 20px black;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+// el hijo
+mat-form-field {
+  width: 50%;
+  margin-top: 1%;
+}
+
+// button bien vacano
+.buttonform {
+  border: none;
+  width: 173px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-image: url('/assets/img/bg3.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 15px;
+  position: relative;
+  transform: all 0.3s ease;
+  -webkit-transform: all 0.3s ease;
+  -moz-transform: all 0.3s ease;
+  -o-transform: all 0.3s ease;
+
+  // <button><span>enviar</span></button>
+  //aqui esta el texto original
+  span {
+    font-family: 'Roboto', sans-serif !important;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+  }
+
+  //a la brava le mete el texto con data-text
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 0;
+    opacity: 0;
+    letter-spacing: 5px;
+    transform: translate(-30%, -23%);
+    -webkit-transform: translate(-30%, -23%);
+    -moz-transform: translate(-30%, -23%);
+    -o-transform: translate(-30%, -23%);
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+  }
+
+  //hover on button
+  &:hover {
+    background-image: url("/assets/img/bg3.jpg");
+    background-size: 150%;
+
+    // desaparezca el original
+    span {
+      opacity: 0;
+      transform: translate(0, 50%);
+      -webkit-transform: translate(0, 50%);
+      -moz-transform: translate(0, 50%);
+      -o-transform: translate(0, 50%);
+    }
+
+    //aparezca el contrenido del original por eso se llama $:after
+    &:after {
+      opacity: 1;
+      //anteriormente tenia estos valores translate(-30%,-25%);
+      //jugando con el 50% del top
+      transform: translate(0, -23%);
+    }
+  }
+}
+
+.guardador {
+  background: #111;
+  background-image: url('/assets/img/bg3.jpg');
+  background-size: cover;
+  height: 90px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tuproyecto {
+  position: absolute;
+  // opacity: 0;
+  color: white;
+  // animation: aparezcase 1s ease-in-out 4s;
+  top: 1%;
+  left: 42%;
+  font-size: 3rem;
+}
+
+.icono {
+  position: absolute;
+  opacity: 1;
+  color: white;
+  left: 30%;
+  top: 1%;
+}
+
+.cuentame {
+  position: absolute;
+  transition: all 1s ease;
+  backface-visibility: visible;
+  animation: rotese 2s ease-in-out 1s;
+  opacity: 0;
+  color: white;
+  top: 1%;
+  left: 42%;
+}
+
+@media screen and (max-width:750px) {
+  .popup {
+    left: 1%;
+    width: 80%;
+    height: auto;
+    top: 8% !important;
+  }
+
+  .guardador {
+    height: 50px;
+
+    h1 {
+      font-size: 26px;
+      color: white;
+      left: 32%;
+    }
+  }
+
+  .icono {
+    left: 20% !important;
+    top: 2.5% !important;
+  }
+
+  .tuproyecto,
+  .cuentame {
+    top: 2% !important;
+  }
+
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+
+// Iphone compatibilidad
+@-webkit-keyframes aparezcase {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 1;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+    opacity: 1;
+  }
+}
+
+@keyframes aparezcase {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 1;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+    opacity: 1;
+  }
+}
+
+@keyframes rotese {
+  from {
+    transform: perspective(400px);
+    opacity: 1;
+  }
+
+  30% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: perspective(200px) rotate3d(0, 1, 0, 120deg) translate(-100%, 0px);
+    opacity: 0;
+  }
+}
+
+.box-buttonsazo2 {
+  position: absolute;
+  top: 9rem;
+  left: 6rem;
+  z-index: 9;
+}
+
+.buttonsazo2 {
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 19px;
+  background-color:
+    black;
+  background-image: linear-gradient(black,
+      #2c2c2c);
+  text-decoration: none;
+  color:
+    #fff;
+  font-size: 18px;
+  font-family: "Helvetica";
+  font-weight: 100;
+  // margin-top: 52%;
+  border-radius: 3px;
+  box-shadow: 0px 1px 4px -2px #333;
+  text-shadow: 0px -1px #333;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: 50%;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  }
+}
+
+svg {
+  z-index: 6666;
+}
+
+svg image:nth-child(odd) {
+  stroke: black;
+}
+
+svg image:nth-child(even) {
+  filter: brightness(80%);
+  transition: all .3s ease;
+
+  &:hover {
+    filter: brightness(110%);
+    width: 21rem;
+  }
+}
+
+.lastAdImage {
+  filter: brightness(80%);
+  transition: all .3s ease;
+
+  &:hover {
+    filter: brightness(110%);
+    width: 21rem;
+
+  }
+}
+
+.imageMassEmail {
+  filter: brightness(80%);
+  transition: all .3s ease;
+
+  &:hover {
+    filter: brightness(110%);
+    width: 33rem;
+
+  }
+}
+
+.smsEmailImage {
+  filter: brightness(80%);
+  transition: all .3s ease;
+
+  &:hover {
+    filter: brightness(110%);
+    width: 23rem;
+
+  }
+}
+
+.svg-box {
+  background-image: linear-gradient(rgba(17, 17, 17, 0.897), rgba(9, 5, 37, 0.774)), url("https://cdn.pixabay.com/photo/2018/03/10/09/45/businessman-3213659_960_720.jpg");
+  background-size: cover;
+  background-position: top;
+  height: 99vh;
+  position: relative;
+  padding: 3rem;
+  z-index: 6666;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 31px;
+    left: 24px;
+    background: rgba(0, 0, 0, 0.479);
+    width: 96%;
+    height: 91%;
+    z-index: -1;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .svg-box {
+    height: 43vh;
+
+    &::after {
+      top: 13px;
+      left: 8px;
+    }
+  }
+
+  .svg {
+    width: 32rem;
+    transform: translate(-2rem, -2rem);
+  }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+  font-size: 1.145rem !important;
+}

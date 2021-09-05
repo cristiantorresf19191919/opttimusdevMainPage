@@ -1,0 +1,310 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// ROBOTO font
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+// editin my material theme
+@import "~@angular/material/theming";
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent: mat-palette($mat-indigo,
+A200,
+A100,
+A400);
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary,
+$candy-app-accent,
+$candy-app-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+// MESSING WITH ANGULAR MATERIAL
+.cdk-overlay-container {
+    z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 !important;
+    left: 16% !important;
+}
+
+@media screen and (max-width:700px) {
+    .cdk-overlay-container {
+        left: 1% !important;
+    }
+}
+
+// new popup making
+.botonsazo {
+    position: relative;
+    border-radius: 28px;
+    background-color: #222;
+    background-image: linear-gradient(#222, rgb(70, 66, 66));
+    color: rgb(255, 255, 255);
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    font-size: 19px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 13% !important;
+}
+
+.botonsazo:before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: calc(100% - 8px);
+    height: 50%;
+    border-radius: 12px;
+    filter: blur(4px);
+    /* background: red; */
+    background: linear-gradient(rgba(255, 255, 255, 0.397), rgba(255, 255, 255, 0.171));
+}
+
+.botonsazo:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 200%;
+    height: 100%;
+    transform: skewX(-20deg);
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.493), transparent);
+}
+
+.fa-location-arrow {
+    margin-right: 1%;
+}
+
+.botonsazo:hover::after,
+.botonsazo:focus::after {
+    animation: shine 0.8s ease;
+}
+
+.botonsazo:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+@-moz-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@-webkit-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@-o-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+
+/* dropdown menu separated*/
+
+.dropdownseparatedclothes {
+    width: 94% !important;
+    margin: 0 3.1%;
+    background: #f4f6f7;
+    font-size: 26px;
+}
+
+// wordpress clear additional css
+.botonsazo {
+    position: relative;
+    border-radius: 28px;
+    background-color: #222;
+    background-image: linear-gradient(#222, rgb(70, 66, 66));
+    color: rgb(255, 255, 255);
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    font-size: 19px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 13% !important;
+}
+
+.botonsazo:before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: calc(100% - 8px);
+    height: 50%;
+    border-radius: 12px;
+    filter: blur(4px);
+    /* background: red; */
+    background: linear-gradient(rgba(255, 255, 255, 0.397), rgba(255, 255, 255, 0.171));
+}
+
+.botonsazo:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 200%;
+    height: 100%;
+    transform: skewX(-20deg);
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.493), transparent);
+}
+
+.fa-location-arrow {
+    margin-right: 1%;
+}
+
+.botonsazo:hover::after,
+.botonsazo:focus::after {
+    animation: shine 0.8s ease;
+}
+
+.botonsazo:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+@-moz-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@-webkit-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@-o-keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+@keyframes shine {
+    100% {
+        left: 80%;
+    }
+}
+
+
+/* dropdown menu separated*/
+
+.dropdownseparatedclothes {
+    width: 94% !important;
+    margin: 0 3.1%;
+    background: #f4f6f7;
+    font-size: 26px;
+}
+
+.ng-tns-c0-0 {}
+
+.extra-title {
+    margin-top: 3% !important;
+}
+
+.ng-tns-c0-0 {
+    font-family: 28px !important;
+    font-weight: bold !important;
+}
+
+.loading{
+display: none;
+}
+
+ngx-material-timepicker-content{
+  z-index: 9999999999999999;
+}
+
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-3-10 14:6:22
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info.
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation vibrate-1
+ * ----------------------------------------
+ */
+ .vibrate-1 {
+	-webkit-animation: vibrate-1 0.7s linear infinite both;
+	        animation: vibrate-1 0.7s linear infinite both;
+}
+
+ @-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+            transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+            transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
